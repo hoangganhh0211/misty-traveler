@@ -136,6 +136,26 @@ public class ControlsScreen : MonoBehaviour
 
     void SetNonSelectedDeviceTextColor()
     {
+        if (GameInputManager.usingController)
+        {
+            for (int i = 0; i < menu.Length - 1; i++)
+            {
+                if (menu[i].text.Length > 1 && menu[i].text[1] != null)
+                {
+                    menu[i].text[1].color = new Color32(141, 105, 122, 255);
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < menu.Length - 1; i++)
+            {
+                if (menu[i].text.Length > 1 && menu[i].text[1] != null)
+                {
+                    menu[i].text[1].color = i == _currentMenuIndex ? MenuUIController.selectColor : MenuUIController.notSelectColor;
+                }
+            }
+        }
     }
 
     void ControlsOptionsRefresh()

@@ -1,22 +1,22 @@
 
 public static class SaveSystem
 {
-    public static void OptionSave(object optionsSaveData)
+    public static void OptionSave(OptionsSaveData optionsSaveData)
     {
 
     }
 
-    public static object OptionLoad()
+    public static OptionsSaveData OptionLoad()
     {
         return null;
     }
 
-    public static void GameSave(object saveData, int dataNum)
+    public static void GameSave(GameSaveData saveData, int dataNum)
     {
 
     }
 
-    public static object GameLoad(int dataNum)
+    public static GameSaveData GameLoad(int dataNum)
     {
         return null;
     }

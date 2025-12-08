@@ -12,7 +12,6 @@ public class TitleScreen : MonoBehaviour
     public TextMeshProUGUI copyrightText;
     public TextMeshProUGUI versionText;
     public GameObject optionsScreen;
-    public GameObject selectProfileScreen;
     public Menu[] menu;
 
     bool _isOtherScreenOpening;
@@ -51,13 +50,6 @@ public class TitleScreen : MonoBehaviour
             var optionsScreenComponent = optionsScreen.GetComponent<OptionsScreen>();
             if (optionsScreenComponent != null)
                 optionsScreenComponent.PrevScreenReturn += OnPrevScreenReturn;
-        }
-
-        if (selectProfileScreen != null)
-        {
-            var selectProfileScreenComponent = selectProfileScreen.GetComponent<SelectProfileScreen>();
-            if (selectProfileScreenComponent != null)
-                selectProfileScreenComponent.PrevScreenReturn += OnPrevScreenReturn;
         }
     }
 

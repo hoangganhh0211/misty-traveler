@@ -527,16 +527,16 @@ public static class GameInputManager
                 text = "ESC";
                 break;
             case Key.LeftArrow:
-                text = "?";
+                text = "←";
                 break;
             case Key.RightArrow:
-                text = "?";
+                text = "→";
                 break;
             case Key.UpArrow:
-                text = "?";
+                text = "↑";
                 break;
             case Key.DownArrow:
-                text = "?";
+                text = "↓";
                 break;
             case Key.Backspace:
                 text = "Backspace";
