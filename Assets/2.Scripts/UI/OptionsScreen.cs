@@ -96,19 +96,19 @@ public class OptionsScreen : MonoBehaviour
     public void ReturnToTitleScreen()
     {
         GameManager.instance.SetGameState(GameManager.GameState.Title);
-        
+
         GameManager.instance.playerStartPos = Vector2.zero;
         GameManager.instance.playerStartlocalScaleX = 0;
         GameManager.instance.playerResurrectionPos = Vector2.zero;
         GameManager.instance.playerCurrentHealth = 0;
         GameManager.instance.resurrectionScene = string.Empty;
         GameManager.instance.firstStart = true;
-        
+
         DeadEnemyManager.ClearDeadBosses();
         DeadEnemyManager.ClearDeadEnemies();
         TutorialManager.SeenTutorialClear();
         MapManager.ClearDiscoveredMaps();
-        
+
         SceneTransition.instance.LoadScene("Title");
     }
 

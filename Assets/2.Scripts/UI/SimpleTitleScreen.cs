@@ -6,7 +6,7 @@ public class SimpleTitleScreen : MonoBehaviour
 {
     public TextMeshProUGUI startText;
     public TextMeshProUGUI exitText;
-    
+
     private int selectedIndex = 0;
     private readonly Color selectedColor = new Color32(255, 236, 214, 255);
     private readonly Color normalColor = new Color32(255, 170, 94, 255);

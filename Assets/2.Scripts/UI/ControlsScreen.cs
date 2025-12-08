@@ -207,8 +207,6 @@ public class ControlsScreen : MonoBehaviour
         }
     }
 
-
-
     void ReturnToOptionsMenuScreen()
     {
         gameObject.SetActive(false);

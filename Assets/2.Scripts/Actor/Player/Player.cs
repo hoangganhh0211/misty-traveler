@@ -427,36 +427,36 @@ public class Player : Actor
     IEnumerator OnDied()
     {
         isDead = true;
-        
+
         if (GameManager.instance != null)
         {
             GameManager.instance.HandlePlayerDeath();
         }
-        
+
         if (animator != null)
         {
             animator.SetTrigger(GetAnimationHash("Die"));
         }
-        
+
         if (ScreenEffect.instance != null)
         {
             ScreenEffect.instance.BulletTimeStart(0.3f, 1.0f);
         }
-        
+
         yield return YieldInstructionCache.WaitForSecondsRealtime(1.5f);
 
         if (ScreenEffect.instance != null)
         {
             ScreenEffect.instance.TimeStopCancle();
         }
-        
+
         Time.timeScale = 1f;
 
         if (GameManager.instance != null && GameManager.instance.playerStartPos == Vector2.zero)
         {
             GameManager.instance.playerStartPos = new Vector2(0, 0);
         }
-        
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

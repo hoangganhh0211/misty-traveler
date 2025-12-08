@@ -44,7 +44,7 @@ public class ObjectPoolManager : MonoBehaviour
         {
 
 #if UNITY_EDITOR
-            Debug.Log(data.key + "는 겹치는 키가 있어요");
+            Debug.Log(data.key + " có key trùng lặp");
 #endif
             for (int i = 0; i < data.count; i++)
             {
@@ -73,7 +73,7 @@ public class ObjectPoolManager : MonoBehaviour
         _keyBySampleObject.Add(data.key, data.prefab);
 
 #if UNITY_EDITOR
-        Debug.Log("오브젝트 이름: " + data.key + "\n 오브젝트 수량: " + parentObject.transform.childCount);
+        Debug.Log("Tên object: " + data.key + "\nSố lượng object: " + parentObject.transform.childCount);
 #endif
     }
 
@@ -83,7 +83,7 @@ public class ObjectPoolManager : MonoBehaviour
         {
 
 #if UNITY_EDITOR
-            Debug.Log(key + "라는 오브젝트는 없어요!");
+            Debug.Log(key + " - Object này không tồn tại!");
 #endif
             return null;
         }
@@ -98,7 +98,7 @@ public class ObjectPoolManager : MonoBehaviour
         {
 
             #if UNITY_EDITOR
-                Debug.Log(key + "의 수가 적어 한 개 추가");
+                Debug.Log(key + " - Số lượng ít, thêm 1 object mới");
             #endif
             string parentObjectName = "Pool <" + key + ">";
             var parentObject = GameObject.Find(parentObjectName);

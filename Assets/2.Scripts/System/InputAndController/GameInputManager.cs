@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Controls;
@@ -527,16 +527,16 @@ public static class GameInputManager
                 text = "ESC";
                 break;
             case Key.LeftArrow:
-                text = "←";
+                text = "?";
                 break;
             case Key.RightArrow:
-                text = "→";
+                text = "?";
                 break;
             case Key.UpArrow:
-                text = "↑";
+                text = "?";
                 break;
             case Key.DownArrow:
-                text = "↓";
+                text = "?";
                 break;
             case Key.Backspace:
                 text = "Backspace";
@@ -659,16 +659,16 @@ public static class GameInputManager
         switch (button)
         {
             case GamepadButton.DpadUp:
-                text = "↑";
+                text = "?";
                 break;
             case GamepadButton.DpadDown:
-                text = "↓";
+                text = "?";
                 break;
             case GamepadButton.DpadLeft:
-                text = "←";
+                text = "?";
                 break;
             case GamepadButton.DpadRight:
-                text = "→";
+                text = "?";
                 break;
             case GamepadButton.Y:
                 text = "Y";

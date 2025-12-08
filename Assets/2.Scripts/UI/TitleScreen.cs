@@ -18,7 +18,7 @@ public class TitleScreen : MonoBehaviour
     bool _isOtherScreenOpening;
     int _currentMenuIndex = 0;
     bool _menuInitialized = false;
-    
+
     void Start()
     {
         if (manualText == null)
@@ -45,14 +45,14 @@ public class TitleScreen : MonoBehaviour
         _menuInitialized = false;
         TitleTextRefresh();
         MenuUIController.MenuRefresh(menu, ref _currentMenuIndex, manualText);
-        
+
         if (optionsScreen != null)
         {
             var optionsScreenComponent = optionsScreen.GetComponent<OptionsScreen>();
             if (optionsScreenComponent != null)
                 optionsScreenComponent.PrevScreenReturn += OnPrevScreenReturn;
         }
-        
+
         if (selectProfileScreen != null)
         {
             var selectProfileScreenComponent = selectProfileScreen.GetComponent<SelectProfileScreen>();
@@ -95,7 +95,7 @@ public class TitleScreen : MonoBehaviour
         bool upInput = GameInputManager.MenuInputDown(GameInputManager.MenuControl.Up);
         bool downInput = GameInputManager.MenuInputDown(GameInputManager.MenuControl.Down);
         bool selectInput = GameInputManager.MenuInputDown(GameInputManager.MenuControl.Select);
-        
+
         if (upInput)
         {
             _currentMenuIndex--;
@@ -115,7 +115,7 @@ public class TitleScreen : MonoBehaviour
                 {
                     menuName = menu[_currentMenuIndex].text[0].name;
                 }
-                
+
                 if (menuName == "StartText")
                 {
                     GameExit();
@@ -159,12 +159,12 @@ public class TitleScreen : MonoBehaviour
         if (GameManager.instance != null)
         {
             GameManager.instance.SetGameState(GameManager.GameState.Play);
-            
+
             GameManager.instance.playerStartPos = Vector2.zero;
             GameManager.instance.playerResurrectionPos = Vector2.zero;
             GameManager.instance.playerStartlocalScaleX = 0;
             GameManager.instance.firstStart = true;
-            
+
             if (SceneTransition.instance != null)
                 SceneTransition.instance.LoadScene("OldMachineRoom_A");
         }
