@@ -105,7 +105,8 @@ public class SoundManager : MonoBehaviour
 
     public void SoundEffectPlay(AudioClip audioClip)
     {
-
+        if (audioClip == null) return;
+        
         _effect.volume = SoundSettingsManager.effectsVolume;
         _effect.PlayOneShot(audioClip);
     }

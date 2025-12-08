@@ -52,14 +52,6 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         OptionsData.Init();
-
-#if UNITY_EDITOR
-
-        if (currentGameState == GameState.Play)
-        {
-            GameLoad(1, false);
-        }
-#endif
     }
 
     public bool IsStarted()
@@ -142,7 +134,8 @@ public class GameManager : MonoBehaviour
             playerResurrectionPos = Vector2.zero;
             playerStartlocalScaleX = 0;
             firstStart = true;
-            SceneTransition.instance.LoadScene("OldMachineRoom_A");
+            if (SceneTransition.instance != null)
+                SceneTransition.instance.LoadScene("OldMachineRoom_A");
             return;
         }
         _prevPlayTime = saveData.playTime;
@@ -150,16 +143,23 @@ public class GameManager : MonoBehaviour
         resurrectionScene = saveData.sceneName;
         playerResurrectionPos = saveData.playerPos;
 
-        MapManager.AddDiscoveredMaps(saveData.foundMaps);
+        if (saveData.foundMaps != null)
+            MapManager.AddDiscoveredMaps(saveData.foundMaps);
 
-        for(int i = 0; i < saveData.deadBosses.Count; i++)
+        if (saveData.deadBosses != null)
         {
-            DeadEnemyManager.AddDeadBoss(saveData.deadBosses[i]);
+            for(int i = 0; i < saveData.deadBosses.Count; i++)
+            {
+                DeadEnemyManager.AddDeadBoss(saveData.deadBosses[i]);
+            }
         }
 
-        for (int i = 0; i < saveData.seenTutorials.Count; i++)
+        if (saveData.seenTutorials != null)
         {
-            TutorialManager.AddSeenTutorial(saveData.seenTutorials[i]);
+            for (int i = 0; i < saveData.seenTutorials.Count; i++)
+            {
+                TutorialManager.AddSeenTutorial(saveData.seenTutorials[i]);
+            }
         }
 
         firstStart = false;
@@ -168,7 +168,8 @@ public class GameManager : MonoBehaviour
         {
 
             playerStartPos = saveData.playerPos;
-            SceneTransition.instance.LoadScene(saveData.sceneName);
+            if (SceneTransition.instance != null)
+                SceneTransition.instance.LoadScene(saveData.sceneName);
         }
     }
 

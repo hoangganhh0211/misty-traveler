@@ -100,7 +100,7 @@ public class Map : MonoBehaviour
     {
 
         Image mapImage = _mapTiles.Find(x => x.rectTransform.anchoredPosition == _playerIcon.anchoredPosition);
-        if (!mapImage.gameObject.activeSelf)
+        if (mapImage != null && !mapImage.gameObject.activeSelf)
         {
             mapImage.gameObject.SetActive(true);
             MapManager.AddDiscoveredMap(mapImage);
